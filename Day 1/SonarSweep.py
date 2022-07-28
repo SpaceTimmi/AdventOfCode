@@ -45,7 +45,7 @@ def threeMeasurementSlidingWindow(data):
     total = -1
 
     for index in range(possibleWindows):
-        newMeasure = sum(newData[index:index+3])  
+        newMeasure = sum(newData[index:index+3])  #newData[index : index+3] -> The window
         if newMeasure > previousMeasure:
             total += 1
         previousMeasure = newMeasure
