@@ -27,7 +27,7 @@ def finalPositionAndDepth(data):
 result = finalPositionAndDepth(importData())
 print(f"The result of multiplying the final horizontal position by the final depth for the input data is {result}")
 
-
+## Part 2
 def finalPosAndDepthWithAim(data):
     horizontalPosition = 0
     depth = 0
