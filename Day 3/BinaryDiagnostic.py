@@ -7,12 +7,15 @@ def importData():
 
 # Power consumption of the submarine - Part 1
 def powerConsumption(data):
-    occuranceofZero = [0, 0, 0, 0, 0]
-    occuranceofOne  = [0, 0, 0, 0, 0]
+    occuranceofZero = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    occuranceofOne  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     for bit in data:
         newList = list(bit)
-        newList = newList[0:4]  #Removing new line (\n) char at the end
+        
+        # Removing the last element from the list; the last element is the char "\n"
+        end = len(newList) - 2
+        newList = newList[0:end]  
         
         for index, element in enumerate(newList):
             if int(element) == 0:
@@ -21,10 +24,10 @@ def powerConsumption(data):
                 occuranceofOne[index] += 1
 
 
-    mostCommon  = [0, 0, 0, 0, 0]
-    leastCommon = [0, 0, 0, 0, 0]
+    mostCommon  = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    leastCommon = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-    for i in range(5):
+    for i in range(12):
         if occuranceofZero[i] > occuranceofOne[i]:  
             mostCommon[i]  = 0
             leastCommon[i] = 1
