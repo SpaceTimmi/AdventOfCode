@@ -14,7 +14,7 @@ def powerConsumption(data):
         newList = list(bit)
         
         # Removing the last element from the list; the last element is the char "\n"
-        end = len(newList) - 2
+        end = len(newList) - 1
         newList = newList[0:end]  
         
         for index, element in enumerate(newList):
