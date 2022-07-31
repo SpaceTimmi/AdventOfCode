@@ -94,7 +94,6 @@ def lifeSupportRating(data):
             index: position in each element of the list to be considered.
             match: the value xs[index] is compared against
         returns only valid xs's that have a 'match' at xs[index]
-
         """
         result = list()        
         for elem in xs:
@@ -108,19 +107,43 @@ def lifeSupportRating(data):
             xs  -> The input data in list data structure
             val -> Either (mostCommon or leastCommon).
         This function assumes there will be no ties when comparing values.
-        len(2) and both binary numbers match the val[index]
+        i.e. a case where xs is of length 2 and both binary numbers match the val[index]
         """
         for index in range(12):
-            result = generateMatch(xs, index, val[index])
+            match = determineMostandLeastCommon(index, xs)
+            if val == 'most':
+                check = match[0]
+            else:
+                check = match[1]
+            result = generateMatch(xs, index, check)
             xs = result
             if len(xs) == 1:
                 break
         return xs
 
+    def determineMostandLeastCommon(i, xs):
+        occuranceofZero = 0
+        occuranceofOne  = 0
+        for index, element in enumerate(xs):
+            if int(element[i]) == 0:
+                occuranceofZero += 1
+            elif int(element[i]) == 1:
+                occuranceofOne += 1
+
+        if (occuranceofZero > occuranceofOne):
+            return (0, 1)
+        else: 
+            return (1, 0)
+
     # Main
     mostCommon, leastCommon, dataList = computeMostAndLeastCommon(data)
-    oxyGenRatingBinary   = generateOxyAndCO2(dataList, mostCommon)
-    scrubberRatingBinary = generateOxyAndCO2(dataList, leastCommon)
+    oxyGenRatingBinary   = generateOxyAndCO2(dataList, 'most')
+    scrubberRatingBinary = generateOxyAndCO2(dataList, 'least')
+
+    #############################################
+    print(f"oxygen generator is {oxyGenRatingBinary}/nwhile most common is {mostCommon}")
+    print(f"scruber rating is {scrubberRatingBinary}/nwhile least common is {leastCommon}") 
+    #############################################
 
     oxyGenRating   = "".join(str(x) for x in oxyGenRatingBinary[0])   
     scrubberRating = "".join(str(x) for x in scrubberRatingBinary[0])
