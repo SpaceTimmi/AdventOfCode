@@ -3,8 +3,6 @@
 
 # Helpers
 
-from lib2to3.pgen2.pgen import generate_grammar
-
 
 def importData():
     scanData = open('input.txt', 'r')
@@ -18,10 +16,8 @@ def computeMostAndLeastCommon(data):
             0 is the most common value for position (1),
             1 is the most common value for position (2),
             0 is the most common value for position (3).
-
     The second list contains the "least" common value for each position (opposite of the first list).
     0101 -> 0 is the least common value for position (0) etc.
-
     The third list is just the input data itself but in a list data structure
     """
     occuranceofZero = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
