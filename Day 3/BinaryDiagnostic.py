@@ -76,7 +76,7 @@ def lifeSupportRating(data):
             xs:    list to be considered.
             index: position in each element of the list to be considered.
             match: the value xs[index] is compared against
-        returns a list that contains only valid xs's (binaries) either that match most or least (depending on the match value) 
+        returns a list that contains only valid xs's (binaries) either that match most or least (depending on the match value). 
         """
         result = list()        
         for elem in xs:
