@@ -16,7 +16,7 @@ def importData():
         end = len(tempList) - 1  # Removing the last element from the list; the last element is the char "\n"
         tempList = tempList[0:end]
         newList.append(tempList)
-    return scanData
+    return newList 
 
 
 def determineMostandLeast(i, xs):
@@ -42,11 +42,6 @@ def powerConsumption(data):
     """
     Calculates the power consumption of the submarine.
     """
-    
-    """    x = computeMostAndLeastCommon(data)
-    mostCommon, leastCommon = x[0], x[1]
-    """
-
     mostCommon, leastCommon = list(), list()
 
     for index in range(12):
@@ -81,7 +76,7 @@ def lifeSupportRating(data):
             xs:    list to be considered.
             index: position in each element of the list to be considered.
             match: the value xs[index] is compared against
-        returns only valid xs's that have a 'match' at xs[index]
+        returns a list that contains only valid xs's (binaries) either that match most or least (depending on the match value) 
         """
         result = list()        
         for elem in xs:
