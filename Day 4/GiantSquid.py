@@ -10,8 +10,8 @@ def importData():
                 [1,2,3, ....]
     list two -> list of boards, where board is a list of numbers. i.e.
                 [[1, 2, 3...],
-                [1, 2, 3...],
-                [..........]] 
+                 [1, 2, 3...],
+                 [..........]] 
     """
     scanData = open('input.txt', 'r')
     dataList = list()
@@ -44,6 +44,10 @@ def importData():
                 singleBoard = list()
     listOfBoards = listOfBoards[1::]
         
+    
     return (listOfGuesses, listOfBoards)
 
-importData()
+# Final score - Part 1
+# What will the final score be if I choose a board?
+def finalScore(data):
+    pass
