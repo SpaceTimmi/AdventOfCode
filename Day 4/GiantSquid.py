@@ -6,12 +6,13 @@ def importData():
     Parses the input.txt data and returns two lists.
     The first list contains the guesses in sequential order
     The second list is a list of boards.
-    list one -> list of numbers 
+    list one -> listOf numbers 
                 [1,2,3, ....]
-    list two -> list of boards, where board is a list of numbers. i.e.
-                [[1, 2, 3...],
-                 [1, 2, 3...],
-                 [..........]] 
+    list two -> listOf boards, where board is a listOf listOf numbers (3D list). i.e.
+                board         -> [[1, 2, 3...],
+                                  [1, 2, 3...],
+                                  [..........]]
+                listOf boards -> [board1, board2, ...]  
     """
     scanData = open('input.txt', 'r')
     dataList = list()
