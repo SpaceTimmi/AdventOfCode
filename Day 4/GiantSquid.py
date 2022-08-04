@@ -3,7 +3,7 @@
 
 def importData():
     """
-    Parses the input data and returns two lists.
+    Parses the input.txt data and returns two lists.
     The first list contains the guesses in sequential order
     The second list is a list of boards.
     list one -> list of numbers 
@@ -29,30 +29,21 @@ def importData():
     # ========= Parsing each board out of the data and inputting into a single list =========
     boards = dataList[1::]
     listOfBoards = list()
+    singleBoard = list()
     for board in boards:
         newBoard = board.split(',')
-        singleBoard = list()
         
         for line in newBoard:
             if line[0] != "\n":
                 temp = line.split(" ")
                 temp[-1] = temp[-1][:-1]
                 temp = [int(elem) for elem in temp if elem]
-                if len(temp) != 0:
-                    singleBoard.append(temp)
-            print(singleBoard) 
-        listOfBoards.append(singleBoard)
-
-
-
-        #newBoard[-1] = newBoard[-1][:-1]
-
-        #if newBoard[0] != "":
-            #newBoard = newBoard[0].split(" ")
-            #newBoard = [int(elem) for elem in newBoard if elem]
-            #listOfBoards.append(newBoard) 
-    
-    print(listOfBoards)
-
+                singleBoard.append(temp)
+            else:
+                listOfBoards.append(singleBoard)
+                singleBoard = list()
+    listOfBoards = listOfBoards[1::]
+        
+    return (listOfGuesses, listOfBoards)
 
 importData()
