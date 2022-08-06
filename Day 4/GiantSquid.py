@@ -78,10 +78,12 @@ def finalScore(data):
         listOfBoards = mark(listOfBoards, guess)
         winningBoard, finished = solved(listOfBoards)
         if finished is True:
-            # sum all the unmarked numbers in winningBoard.
-            #       drop all -1 from each row in the winningBoard
-            #       sum up each row in the winningBoard individually
-            #       combine the results of the sum for each row 
-            # return the product of the (sum of unmarked numbers) and guess  
-            pass
-    return None # no guesses can solve the boards
+            for index, row in enumerate(winningBoard):
+                winningBoard[index] = [n for n in row if n != -1] # removes all -1s.
+            totalSum = 0
+            for row in winningBoard:
+                totalSum += sum(row) # adding up all non-marked numbers
+            return totalSum * guess
+
+    # if no guesses can solve the boards
+    return None
