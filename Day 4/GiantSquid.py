@@ -43,9 +43,10 @@ def importData():
             else:
                 listOfBoards.append(singleBoard)
                 singleBoard = list()
+    listOfBoards.append(singleBoard)
     listOfBoards = listOfBoards[1::]
+
         
-    
     return (listOfGuesses, listOfBoards)
 
 # Final score - Part 1
@@ -98,7 +99,6 @@ def finalScore(data):
                                                                                     # then it marks it (changes the value to -1)
                                                                                     # if no, it doesn't change n
         return lob
-        # !!! Looks sus, because I'm mutating the lob
 
 
     listOfGuesses, listOfBoards = data[0], data[1]
@@ -112,6 +112,7 @@ def finalScore(data):
             totalSum = 0
             for row in winningBoard:
                 totalSum += sum(row) # adding up all non-marked numbers
+            
             return totalSum * guess
 
     # if no guesses can solve the boards
