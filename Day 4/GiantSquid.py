@@ -70,7 +70,13 @@ def finalScore(data):
         -1 is used to represt that a cell has been marked.
         listOf Boards, Natural -> listOf Boards.  
         """
-        return 
+        for board in lob:
+            for index, row in enumerate(board):
+                board[index] = list(map(lambda n: n if (n != guess) else -1, row))  # checks if the n is equal to guess, if yes
+                                                                                    # then it marks it (changes the value to -1)
+                                                                                    # if no, it doesn't change n
+        return lob
+
 
     listOfGuesses, listOfBoards = data[0], data[1]
     
