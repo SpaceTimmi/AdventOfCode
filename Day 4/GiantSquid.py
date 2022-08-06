@@ -55,12 +55,22 @@ def finalScore(data):
     Takes the importData() function as input and calculates the final score of the winning board.
     funct -> Natural 
     """
-    def marked(board):
+    # Helpers.
+    def solved(lob):
         """
-        Takes a 5x5 board and returns true if any row or column has been totally marked.
-        Board -> Boolean 
+        Takes a list of  5x5 boards and returns true if any row or column has been totally marked.
+        Totally marked means all the cells in a row or column contains the value -1.
+        listOf Boards -> Boolean 
         """
         return
+
+    def mark(lob, guess):
+        """
+        Takes a listOf Boards and a guess. It replaces all occurances of the guess in each board with the number -1.
+        -1 is used to represt that a cell has been marked.
+        listOf Boards, Natural -> listOf Boards.  
+        """
+        return 
 
     listOfGuesses, listOfBoards = data[0], data[1]
     # iterate over all guesses. <--------------------------------------------
@@ -69,6 +79,8 @@ def finalScore(data):
     #   if yes -> calc the final score                                      |
     #   else   -> repeat -> -------------------------------------------------
     for guess in listOfGuesses:
-        pass
+        listOfBoards = mark(listOfBoards, guess)
+        if solved(listOfBoards):
+            pass
 
     return 
