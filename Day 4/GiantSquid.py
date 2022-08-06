@@ -58,9 +58,9 @@ def finalScore(data):
     # Helpers.
     def solved(lob):
         """
-        Takes a list of  5x5 boards and returns true if any row or column has been totally marked.
+        Takes a list of  5x5 boards and returns true (and the corresponding board) if any row or column has been totally marked.
         Totally marked means all the cells in a row or column contains the value -1.
-        listOf Boards -> Boolean 
+        listOf Boards -> Boolean, Board 
         """
         return
 
@@ -73,14 +73,15 @@ def finalScore(data):
         return 
 
     listOfGuesses, listOfBoards = data[0], data[1]
-    # iterate over all guesses. <--------------------------------------------
-    # pick a guess and mark all instances of that guess in the board.       |
-    # check if any board has been solved                                    |
-    #   if yes -> calc the final score                                      |
-    #   else   -> repeat -> -------------------------------------------------
+    
     for guess in listOfGuesses:
         listOfBoards = mark(listOfBoards, guess)
-        if solved(listOfBoards):
+        winningBoard, finished = solved(listOfBoards)
+        if finished is True:
+            # sum all the unmarked numbers in winningBoard.
+            #       drop all -1 from each row in the winningBoard
+            #       sum up each row in the winningBoard individually
+            #       combine the results of the sum for each row 
+            # return the product of the (sum of unmarked numbers) and guess  
             pass
-
-    return 
+    return None # no guesses can solve the boards
