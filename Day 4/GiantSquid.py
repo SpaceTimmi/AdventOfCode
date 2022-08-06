@@ -112,6 +112,10 @@ def finalScore(data):
             totalSum = 0
             for row in winningBoard:
                 totalSum += sum(row) # adding up all non-marked numbers
+
+            print("winning board", winningBoard) 
+            print("sum", totalSum)
+            print("guess", guess)
             
             return totalSum * guess
 
