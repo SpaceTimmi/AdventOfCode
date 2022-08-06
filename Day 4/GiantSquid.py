@@ -51,4 +51,24 @@ def importData():
 # Final score - Part 1
 # What will the final score be if I choose a board?
 def finalScore(data):
-    pass
+    """
+    Takes the importData() function as input and calculates the final score of the winning board.
+    funct -> Natural 
+    """
+    def marked(board):
+        """
+        Takes a 5x5 board and returns true if any row or column has been totally marked.
+        Board -> Boolean 
+        """
+        return
+
+    listOfGuesses, listOfBoards = data[0], data[1]
+    # iterate over all guesses. <--------------------------------------------
+    # pick a guess and mark all instances of that guess in the board.       |
+    # check if any board has been solved                                    |
+    #   if yes -> calc the final score                                      |
+    #   else   -> repeat -> -------------------------------------------------
+    for guess in listOfGuesses:
+        pass
+
+    return 
