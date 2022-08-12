@@ -77,14 +77,7 @@ def finalScore(data):
             if totalSum == -5:
                 return (True, board)
             column += 1
-
-            # This is what is basically going on in the 'checking for solved columns' section above.
-            # column1 = board[0][0] + board[1][0] + board[2][0] + board[3][0] + board[4][0]
-            # column2 = board[0][1] + board[1][1] + board[2][1] + board[3][1] + board[4][1] 
-            # column3 = board[0][2] + board[1][2] + board[2][2] + board[3][2] + board[4][2] 
-            # column4 = board[0][3] + board[1][3] + board[2][3] + board[3][3] + board[4][3] 
-            # column5 = board[0][4] + board[1][4] + board[2][4] + board[3][4] + board[4][4] 
-        
+       
         return (False, [])
 
     def mark(lob, guess):
@@ -95,9 +88,7 @@ def finalScore(data):
         """
         for board in lob:
             for index, row in enumerate(board):
-                board[index] = list(map(lambda n: n if (n != guess) else -1, row))  # checks if the n is equal to guess, if yes
-                                                                                    # then it marks it (changes the value to -1)
-                                                                                    # if no, it doesn't change n
+                board[index] = list(map(lambda n: n if (n != guess) else -1, row))
         return lob
 
 
